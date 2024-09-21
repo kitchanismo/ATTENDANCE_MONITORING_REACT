@@ -7,29 +7,30 @@ import {
   navigationMenuTriggerStyle,
 } from '@/components/ui/navigation-menu';
 import { CalendarCheck2 } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 const MainNav = () => {
   return (
     <React.Fragment>
-      <a href="#" className="mr-6 hidden lg:flex">
+      <Link to="#" className="mr-6 hidden lg:flex">
         <CalendarCheck2 />
         <span className="sr-only">Attendance</span>
-      </a>
+      </Link>
       <NavigationMenu className="mr-auto hidden lg:flex">
         <NavigationMenuList>
           <NavigationMenuItem>
-            <a href="/docs">
+            <Link to="/student">
               <NavigationMenuLink className={navigationMenuTriggerStyle()}>
                 Student
               </NavigationMenuLink>
-            </a>
+            </Link>
           </NavigationMenuItem>
           <NavigationMenuItem>
-            <a href="/docs">
+            <Link to="/subject">
               <NavigationMenuLink className={navigationMenuTriggerStyle()}>
                 Subjects
               </NavigationMenuLink>
-            </a>
+            </Link>
           </NavigationMenuItem>
         </NavigationMenuList>
       </NavigationMenu>

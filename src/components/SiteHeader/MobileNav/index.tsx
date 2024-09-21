@@ -1,6 +1,7 @@
 import { Button } from '@/components/ui/button';
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
 import { CalendarCheck2, Menu } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 const MobileNav = () => {
   return (
@@ -11,22 +12,22 @@ const MobileNav = () => {
         </Button>
       </SheetTrigger>
       <SheetContent side="left">
-        <a href="#" className="mr-6 flex flex-">
+        <Link to="#" className="mr-6 flex flex-">
           <CalendarCheck2 />
-        </a>
+        </Link>
         <div className="grid gap-2 py-6">
-          <a
-            href="#"
+          <Link
+            to="/student"
             className="flex w-full items-center py-2 text-lg font-semibold"
           >
             Student
-          </a>
-          <a
-            href="#"
+          </Link>
+          <Link
+            to="/subject"
             className="flex w-full items-center py-2 text-lg font-semibold"
           >
             Subjects
-          </a>
+          </Link>
         </div>
       </SheetContent>
     </Sheet>

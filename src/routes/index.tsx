@@ -1,6 +1,7 @@
 import SiteHeader from '@/components/SiteHeader';
-import HomePage from '@/pages/HomePage';
 import LoginPage from '@/pages/LoginPage/LoginPage';
+import StudentPage from '@/pages/StudentPage';
+import SubjectPage from '@/pages/SubjectPage';
 import React from 'react';
 import { Route, BrowserRouter, Routes, useLocation } from 'react-router-dom';
 
@@ -19,7 +20,8 @@ const AppRoutes = () => {
       {shouldShowHeader && <SiteHeader />}
       <Routes>
         <Route path="/login" element={<LoginPage />} />
-        <Route path="/" element={<HomePage />} />
+        <Route path="/student" element={<StudentPage />} />
+        <Route path="/subject" element={<SubjectPage />} />
       </Routes>
     </React.Fragment>
   );
