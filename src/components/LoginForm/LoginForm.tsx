@@ -1,6 +1,3 @@
-import { zodResolver } from "@hookform/resolvers/zod"
-import { useForm } from "react-hook-form"
-import { z } from "zod"
 import { Button } from "@/components/ui/button"
 import {
   Form,
@@ -11,26 +8,28 @@ import {
   FormMessage,
 } from "@/components/ui/form"
 import { Input } from "@/components/ui/input"
+import { useLoginForm } from "@/forms/login.form"
 import { User } from "@/types/user.type"
 
-const loginFormSchema = z.object({
-  username: z.string(),
-  password: z.string(),
-})
-
 const LoginForm = () => {
-  // Login Form Schema
-  const loginForm = useForm<User>({
-    resolver: zodResolver(loginFormSchema),
-    defaultValues: {
-      username: "",
-      password: "",
-    },
-  })
+  const loginForm = useLoginForm({ username: "", password: "" })
 
   const onSubmit = (user: User) => {
     console.log(user)
   }
+
+  const formItem =
+    (label: string) =>
+    ({ field }) =>
+      (
+        <FormItem>
+          <FormLabel>{label}</FormLabel>
+          <FormControl>
+            <Input placeholder={label} {...field} />
+          </FormControl>
+          <FormMessage />
+        </FormItem>
+      )
 
   return (
     <Form {...loginForm}>
@@ -43,28 +42,12 @@ const LoginForm = () => {
         <FormField
           control={loginForm.control}
           name="username"
-          render={({ field }) => (
-            <FormItem>
-              <FormLabel>Username</FormLabel>
-              <FormControl>
-                <Input placeholder="Username" {...field} />
-              </FormControl>
-              <FormMessage />
-            </FormItem>
-          )}
+          render={formItem("Username")}
         />
         <FormField
           control={loginForm.control}
           name="password"
-          render={({ field }) => (
-            <FormItem>
-              <FormLabel>Password</FormLabel>
-              <FormControl>
-                <Input placeholder="Password" {...field} />
-              </FormControl>
-              <FormMessage />
-            </FormItem>
-          )}
+          render={formItem("Password")}
         />
         <Button type="submit">Login</Button>
       </form>
