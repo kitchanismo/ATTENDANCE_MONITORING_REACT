@@ -11,15 +11,16 @@ import {
   FormMessage,
 } from "@/components/ui/form"
 import { Input } from "@/components/ui/input"
+import { User } from "@/types/user.type"
 
 const loginFormSchema = z.object({
   username: z.string(),
-  password: z.string()
+  password: z.string(),
 })
 
 const LoginForm = () => {
   // Login Form Schema
-  const loginForm = useForm<z.infer<typeof loginFormSchema>>({
+  const loginForm = useForm<User>({
     resolver: zodResolver(loginFormSchema),
     defaultValues: {
       username: "",
@@ -27,16 +28,17 @@ const LoginForm = () => {
     },
   })
 
-  const onSubmit = (values: z.infer<typeof loginFormSchema>) => {
-
-    console.log(values)
+  const onSubmit = (user: User) => {
+    console.log(user)
   }
-
 
   return (
     <Form {...loginForm}>
-      <form onSubmit={loginForm.handleSubmit(onSubmit)} className="space-y-4 min-w-[80vw] md:min-w-[60vw] lg:min-w-[600px] p-8 border rounded-xl">
-        <h1 className='text-xl font-bold'>Login</h1>
+      <form
+        onSubmit={loginForm.handleSubmit(onSubmit)}
+        className="space-y-4 min-w-[80vw] md:min-w-[60vw] lg:min-w-[600px] p-8 border rounded-xl"
+      >
+        <h1 className="text-xl font-bold">Login</h1>
 
         <FormField
           control={loginForm.control}
@@ -66,7 +68,7 @@ const LoginForm = () => {
         />
         <Button type="submit">Login</Button>
       </form>
-    </Form >
+    </Form>
   )
 }
 
