@@ -12,7 +12,7 @@ const MobileNav = () => {
         </Button>
       </SheetTrigger>
       <SheetContent side="left">
-        <Link to="#" className="mr-6 flex flex-">
+        <Link to="/" className="mr-6 flex flex-">
           <CalendarCheck2 />
         </Link>
         <div className="grid gap-2 py-6">

@@ -12,9 +12,8 @@ import { Link } from 'react-router-dom';
 const MainNav = () => {
   return (
     <React.Fragment>
-      <Link to="#" className="mr-6 hidden lg:flex">
+      <Link to="/" className="mr-6 hidden lg:flex">
         <CalendarCheck2 />
-        <span className="sr-only">Attendance</span>
       </Link>
       <NavigationMenu className="mr-auto hidden lg:flex">
         <NavigationMenuList>
