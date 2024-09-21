@@ -4,8 +4,8 @@ function App() {
 
   return (
     <>
-      <div className="app">
-        <LoginPage></LoginPage>
+      <div className="app min-h-screen flex justify-center items-center">
+        <LoginPage />
       </div>
     </>
   )
