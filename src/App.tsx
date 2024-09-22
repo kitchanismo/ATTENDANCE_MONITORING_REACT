@@ -1,15 +1,14 @@
-import AppRouter from './routes';
+import LoginPage from "./pages/LoginPage/LoginPage"
 
 function App() {
+
   return (
-    <html lang="en">
-      <head />
-      {/* TODO: Add ThemeProvider for dark and light mode */}
-      <body className="flex min-h-screen flex-col">
-        <AppRouter />
-      </body>
-    </html>
-  );
+    <>
+      <div className="app min-h-screen flex justify-center items-center">
+        <LoginPage />
+      </div>
+    </>
+  )
 }
 
-export default App;
+export default App

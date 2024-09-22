@@ -82,9 +82,3 @@
     @apply bg-background text-foreground;
   }
 }
-
-@media (max-width: 640px) {
-  .container {
-    @apply px-4;
-  }
-}
