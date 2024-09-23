@@ -46,11 +46,14 @@ git checkout stage
 
 Use the ticket code, such as SCRUM-1 or SCRUM-1-description.
 
+![image](https://github.com/user-attachments/assets/d3bb4960-ed7a-4e83-b586-7861ce1b5ca5)
+*In the picture you can see the ticket code: SCRUM-9*
+
 ```
 git checkout -b SCRUM-1
 ```
 
-Important: Never commit directly to the stage branch. Always create a new branch based on your ticket.
+**Important: Never commit directly to the stage branch. Always create a new branch based on your ticket.**
 
 3. Make your changes.
 
