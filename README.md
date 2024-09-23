@@ -44,14 +44,14 @@ When picking up a ticket from Jira, follow this workflow:
 
 2. **Create a new feature branch based on your ticket:**
 
-   Use the ticket code, such as SCRUM-1 or SCRUM-1-description.
+   Use the ticket code, such as SCRUM-9 or SCRUM-9-description.
    
    ![image](https://github.com/user-attachments/assets/d3bb4960-ed7a-4e83-b586-7861ce1b5ca5)
    
    *In the picture you can see the ticket code: SCRUM-9*
    
    ```
-   git checkout -b SCRUM-1
+   git checkout -b SCRUM-9
    ```
 
 **Important: Never commit directly to the stage branch. Always create a new branch based on your ticket.**
@@ -87,7 +87,7 @@ When picking up a ticket from Jira, follow this workflow:
    On your first push, use the -u flag to set the upstream branch:
 
    ```
-   git push -u origin SCRUM-1
+   git push -u origin SCRUM-9
    ```
 
    For subsequent pushes, you can simply run:
