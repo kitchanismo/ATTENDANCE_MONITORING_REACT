@@ -98,9 +98,9 @@ When picking up a ticket from Jira, follow this workflow:
 
 ### Creating a Pull Request (PR)
 
-1. **After pushing your changes, create a pull request (PR) on GitHub.**
-2. **Ensure the PR is directed to the stage branch.**
-3. **In the PR description, write a brief summary of the changes you made. This helps reviewers and collaborators understand the context of your work.**
+1. After pushing your changes, create a pull request (PR) on GitHub.
+2. Ensure the PR is directed to the stage branch.
+3. In the PR description, write a brief summary of the changes you made. This helps reviewers and collaborators understand the context of your work.
 
 ### Important Notes
 
