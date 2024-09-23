@@ -36,10 +36,11 @@ Run the development server:
 
 When picking up a ticket from Jira, follow this workflow:
 
-1. **Ensure you are on the stage branch:**
+1. **Ensure you are on the stage branch and it's updated:**
 
    ```
    git checkout stage
+   git pull
    ```
 
 2. **Create a new feature branch based on your ticket:**
