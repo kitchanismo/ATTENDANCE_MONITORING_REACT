@@ -3,7 +3,13 @@ import LoginPage from "@/pages/LoginPage"
 import StudentPage from "@/pages/StudentPage"
 import SubjectPage from "@/pages/SubjectPage"
 import React from "react"
-import { Route, BrowserRouter, Routes, useLocation } from "react-router-dom"
+import {
+  Route,
+  BrowserRouter,
+  Routes,
+  useLocation,
+  Navigate,
+} from "react-router-dom"
 
 const AppRoutes = () => {
   const location = useLocation()
@@ -20,12 +26,13 @@ const AppRoutes = () => {
       {shouldShowHeader && <SiteHeader />}
       <Routes>
         <Route
-          path="/"
+          path="/dashboard"
           element={<div className="container">Hello World! :)</div>}
         />
         <Route path="/login" element={<LoginPage />} />
         <Route path="/student" element={<StudentPage />} />
         <Route path="/subject" element={<SubjectPage />} />
+        <Route path="*" element={<Navigate to="/login" replace />} />
       </Routes>
     </React.Fragment>
   )
