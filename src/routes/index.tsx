@@ -3,7 +3,7 @@ import LoginPage from "@/pages/LoginPage"
 import StudentPage from "@/pages/StudentPage"
 import SubjectPage from "@/pages/SubjectPage"
 import React from "react"
-import { Route, BrowserRouter, Routes, Navigate, Link } from "react-router-dom"
+import { Route, BrowserRouter, Routes, Link } from "react-router-dom"
 
 const NotFound = () => {
   return (
