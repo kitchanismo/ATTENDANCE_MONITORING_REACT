@@ -44,21 +44,21 @@ When picking up a ticket from Jira, follow this workflow:
 
 2. **Create a new feature branch based on your ticket:**
 
-Use the ticket code, such as SCRUM-1 or SCRUM-1-description.
-
-![image](https://github.com/user-attachments/assets/d3bb4960-ed7a-4e83-b586-7861ce1b5ca5)
-
-*In the picture you can see the ticket code: SCRUM-9*
-
-```
-git checkout -b SCRUM-1
-```
+   Use the ticket code, such as SCRUM-1 or SCRUM-1-description.
+   
+   ![image](https://github.com/user-attachments/assets/d3bb4960-ed7a-4e83-b586-7861ce1b5ca5)
+   
+   *In the picture you can see the ticket code: SCRUM-9*
+   
+   ```
+   git checkout -b SCRUM-1
+   ```
 
 **Important: Never commit directly to the stage branch. Always create a new branch based on your ticket.**
 
 3. **Make your changes.**
 
-Code as needed to complete the task.
+   Code as needed to complete the task.
 
 4. **Stage and commit your changes:**
 
@@ -69,28 +69,28 @@ Code as needed to complete the task.
 
 5. **Sync with the latest changes from stage before pushing:**
 
-Always pull the latest changes from stage to avoid conflicts:
+   Always pull the latest changes from stage to avoid conflicts:
 
    ```
    git pull origin stage
    ```
 
-You can also rebase to keep a clean commit history:
+   You can also rebase to keep a clean commit history:
 
    ```
    git rebase origin/stage
    ```
 
-_Explanation: Rebasing rewrites your branch’s commit history to apply your changes on top of the latest stage branch updates. This keeps the history linear and avoids merge commits._
+   _Explanation: Rebasing rewrites your branch’s commit history to apply your changes on top of the latest stage branch updates. This keeps the history linear and avoids merge commits._
 
 6. **Push your changes to your feature branch:**
-On your first push, use the -u flag to set the upstream branch:
+   On your first push, use the -u flag to set the upstream branch:
 
    ```
    git push -u origin SCRUM-1
    ```
 
-For subsequent pushes, you can simply run:
+   For subsequent pushes, you can simply run:
 
    ```
    git push
