@@ -1,17 +1,15 @@
-import { ThemeProvider } from "./providers/ThemeProvider"
-import AppRouter from "./routes"
+import AppRouter from './routes';
 
 function App() {
   return (
     <html lang="en">
       <head />
-      <ThemeProvider defaultTheme="dark" storageKey="vite-ui-theme">
-        <body className="flex min-h-screen flex-col">
-          <AppRouter />
-        </body>
-      </ThemeProvider>
+      {/* TODO: Add ThemeProvider for dark and light mode */}
+      <body className="flex min-h-screen flex-col">
+        <AppRouter />
+      </body>
     </html>
-  )
+  );
 }
 
-export default App
+export default App;
