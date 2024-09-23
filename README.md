@@ -80,6 +80,13 @@ git rebase origin/stage
 _Explanation: Rebasing rewrites your branch’s commit history to apply your changes on top of the latest stage branch updates. This keeps the history linear and avoids merge commits._
 
 6. Push your changes to your feature branch:
+   On your first push, use the -u flag to set the upstream branch:
+
+```
+git push -u origin SCRUM-1
+```
+
+For subsequent pushes, you can simply run:
 
 ```
 git push
