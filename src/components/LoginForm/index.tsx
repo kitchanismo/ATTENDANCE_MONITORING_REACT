@@ -14,8 +14,8 @@ import { Input } from "@/components/ui/input"
 import { User } from "@/types/user.type"
 
 const loginFormSchema = z.object({
-  username: z.string(),
-  password: z.string(),
+  username: z.string().min(6).regex(/^(?=.*[a-zA-Z])(?=.*\d)/, 'Username must contain at least one letter and one number'),
+  password: z.string().min(6).regex(/^(?=.*[a-zA-Z])(?=.*\d)/, 'Password must contain at least one letter and one number'),
 })
 
 const LoginForm = () => {
@@ -36,7 +36,7 @@ const LoginForm = () => {
     <Form {...loginForm}>
       <form
         onSubmit={loginForm.handleSubmit(onSubmit)}
-        className="space-y-4 min-w-[80vw] md:min-w-[60vw] lg:min-w-[600px] p-8 border rounded-xl"
+        className="space-y-4 min-w-[80vw] sm:min-w-[70vw] md:min-w-[60vw] lg:min-w-[30rem] p-8 border rounded-xl"
       >
         <h1 className="text-xl font-bold">Login</h1>
 
@@ -60,7 +60,7 @@ const LoginForm = () => {
             <FormItem>
               <FormLabel>Password</FormLabel>
               <FormControl>
-                <Input placeholder="Password" {...field} />
+                <Input type='password' placeholder="Password" {...field} />
               </FormControl>
               <FormMessage />
             </FormItem>

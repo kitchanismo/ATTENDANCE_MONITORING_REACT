@@ -1,5 +1,5 @@
 import SiteHeader from '@/components/SiteHeader';
-import LoginPage from '@/pages/LoginPage/LoginPage';
+import LoginPage from '@/pages/LoginPage';
 import StudentPage from '@/pages/StudentPage';
 import SubjectPage from '@/pages/SubjectPage';
 import React from 'react';
