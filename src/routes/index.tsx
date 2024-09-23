@@ -3,19 +3,9 @@ import LoginPage from "@/pages/LoginPage"
 import StudentPage from "@/pages/StudentPage"
 import SubjectPage from "@/pages/SubjectPage"
 import React from "react"
-import {
-  Route,
-  BrowserRouter,
-  Routes,
-  useLocation,
-  Navigate,
-} from "react-router-dom"
+import { Route, BrowserRouter, Routes, Navigate } from "react-router-dom"
 
 const AppRoutes = () => {
-  const location = useLocation()
-
-  const shouldShowHeader = location.pathname !== "/login"
-
   return (
     <React.Fragment>
       {/* 
@@ -23,7 +13,7 @@ const AppRoutes = () => {
         This isn't the best way to handle layout components and should be refactored
         in the future as part of another task.
       */}
-      {shouldShowHeader && <SiteHeader />}
+      <SiteHeader />
       <Routes>
         <Route
           path="/dashboard"
