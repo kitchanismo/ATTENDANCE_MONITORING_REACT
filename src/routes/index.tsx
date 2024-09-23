@@ -1,9 +1,10 @@
+import NotFound from "@/components/NotFound"
 import SiteHeader from "@/components/SiteHeader"
 import LoginPage from "@/pages/LoginPage"
 import StudentPage from "@/pages/StudentPage"
 import SubjectPage from "@/pages/SubjectPage"
 import React from "react"
-import { Route, BrowserRouter, Routes, Navigate } from "react-router-dom"
+import { Route, BrowserRouter, Routes } from "react-router-dom"
 
 const AppRoutes = () => {
   return (
@@ -22,7 +23,10 @@ const AppRoutes = () => {
         <Route path="/login" element={<LoginPage />} />
         <Route path="/student" element={<StudentPage />} />
         <Route path="/subject" element={<SubjectPage />} />
-        <Route path="*" element={<Navigate to="/login" replace />} />
+        {/* Comment out this route to enable the NotFound page functionality. */}
+        {/* <Route path="*" element={<Navigate to="/login" replace />} /> */}
+        <Route path="*" element={<NotFound />} />
+        {/* The NotFound page will be displayed below the SiteHeader. The SiteHeader will not be moved, as my task is only to implement the NotFound page. */}
       </Routes>
     </React.Fragment>
   )
