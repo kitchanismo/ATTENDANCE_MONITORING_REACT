@@ -2,16 +2,12 @@ import { zodResolver } from "@hookform/resolvers/zod"
 import { useForm } from "react-hook-form"
 import { z } from "zod"
 import { Button } from "@/components/ui/button"
-import {
-  Form,
-  FormControl,
-  FormField,
-  FormItem,
-  FormLabel,
-  FormMessage,
-} from "@/components/ui/form"
+import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form"
 import { Input } from "@/components/ui/input"
 import { User } from "@/types/user.type"
+import api from "@/api"
+import { useNavigate } from "react-router-dom"
+import { useState } from "react"
 
 const loginFormSchema = z.object({
   username: z.string().min(6).regex(/^(?=.*[a-zA-Z])(?=.*\d)/, 'Username must contain at least one letter and one number'),
@@ -19,7 +15,6 @@ const loginFormSchema = z.object({
 })
 
 const LoginForm = () => {
-  // Login Form Schema
   const loginForm = useForm<User>({
     resolver: zodResolver(loginFormSchema),
     defaultValues: {
@@ -27,9 +22,21 @@ const LoginForm = () => {
       password: "",
     },
   })
+  const navigate = useNavigate()
+  const [loginErrorMessage, setLoginErrorMessage] = useState(null)
 
-  const onSubmit = (user: User) => {
-    console.log(user)
+  const onSubmit = async (user: User) => {
+    try {
+      const response = await api.post('api/auth/signin', user)
+
+      if (response.status === 200) {
+        localStorage.setItem("accessToken", response.data.accessToken)
+        navigate('/dashboard')
+      }
+    } catch (e) {
+      setLoginErrorMessage("Invalid login credentials. Please try again.")
+      loginForm.reset()
+    }
   }
 
   return (
@@ -38,6 +45,9 @@ const LoginForm = () => {
         onSubmit={loginForm.handleSubmit(onSubmit)}
         className="space-y-4 min-w-[80vw] sm:min-w-[70vw] md:min-w-[60vw] lg:min-w-[30rem] p-8 border rounded-xl"
       >
+        {loginErrorMessage && (
+          <p className="text-red-500">{loginErrorMessage}</p>
+        )}
         <h1 className="text-xl font-bold">Login</h1>
 
         <FormField
