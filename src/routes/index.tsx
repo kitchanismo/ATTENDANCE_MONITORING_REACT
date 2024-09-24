@@ -10,17 +10,33 @@ const AppRoutes = () => {
   return (
     <React.Fragment>
       <Routes>
-
         <Route
           path="/dashboard"
-          element={<Layout><div className="container">Hello World! :)</div></Layout>}
+          element={
+            <Layout>
+              <div className="container">Hello World! :)</div>
+            </Layout>
+          }
         />
-        <Route path="/student" element={<Layout><StudentPage /></Layout>} />
-        <Route path="/subject" element={<Layout><SubjectPage /></Layout>} />
+        <Route
+          path="/student"
+          element={
+            <Layout>
+              <StudentPage />
+            </Layout>
+          }
+        />
+        <Route
+          path="/subject"
+          element={
+            <Layout>
+              <SubjectPage />
+            </Layout>
+          }
+        />
 
-        <Route path="/login" element={<LoginPage />} />
+        <Route path="/" element={<LoginPage />} />
         <Route path="*" element={<NotFound />} />
-
       </Routes>
     </React.Fragment>
   )
