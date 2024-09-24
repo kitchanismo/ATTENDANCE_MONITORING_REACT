@@ -25,3 +25,6 @@ dist-ssr
 
 # TypeScript build info files
 *.tsbuildinfo
+
+# env files
+.env
