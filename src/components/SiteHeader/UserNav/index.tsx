@@ -5,15 +5,15 @@ import {
   DropdownMenuLabel,
   DropdownMenuSeparator,
   DropdownMenuTrigger,
-} from '../../ui/dropdown-menu';
-import { Button } from '../../ui/button';
-import { Avatar, AvatarFallback, AvatarImage } from '../../ui/avatar';
-import { Bolt, LogOut } from 'lucide-react';
-import { useNavigate } from 'react-router-dom';
+} from "../../ui/dropdown-menu"
+import { Button } from "../../ui/button"
+import { Avatar, AvatarFallback, AvatarImage } from "../../ui/avatar"
+import { Bolt, LogOut } from "lucide-react"
+import { useNavigate } from "react-router-dom"
 
 // TODO: Populate with proper data when user auth for FE is implemented
 const UserNav = () => {
-  const navigate = useNavigate();
+  const navigate = useNavigate()
 
   return (
     <DropdownMenu>
@@ -43,14 +43,14 @@ const UserNav = () => {
         <DropdownMenuItem
           className="cursor-pointer"
           // TODO: Set proper auth logout logic for this when auth for FE is implemented
-          onClick={() => navigate('/login')}
+          onClick={() => navigate("/")}
         >
           <LogOut size={16} className="mr-3" />
           Log out
         </DropdownMenuItem>
       </DropdownMenuContent>
     </DropdownMenu>
-  );
-};
+  )
+}
 
-export default UserNav;
+export default UserNav
