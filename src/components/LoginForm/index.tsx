@@ -23,7 +23,7 @@ const LoginForm = () => {
     },
   })
   const navigate = useNavigate()
-  const [loginErrorMessage, setLoginErrorMessage] = useState(null)
+  const [loginErrorMessage, setLoginErrorMessage] = useState<string | null>(null)
 
   const onSubmit = async (user: User) => {
     try {
