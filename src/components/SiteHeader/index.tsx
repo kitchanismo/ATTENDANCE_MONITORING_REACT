@@ -2,15 +2,8 @@ import UserNav from "./UserNav"
 import ModeToggle from "./ModeToggle"
 import MainNav from "./MainNav"
 import MobileNav from "./MobileNav"
-import { useLocation } from "react-router-dom"
 
 const SiteHeader = () => {
-  const location = useLocation()
-
-  const shouldShowHeader = location.pathname === "/login"
-
-  if (shouldShowHeader) return null
-
   return (
     <header className="w-full">
       <div className="container flex h-14 max-w-screen-2xl items-center">
