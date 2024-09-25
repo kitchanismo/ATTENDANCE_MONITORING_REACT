@@ -28,7 +28,8 @@
     "react-router-dom": "^6.26.2",
     "tailwind-merge": "^2.5.2",
     "tailwindcss-animate": "^1.0.7",
-    "zod": "^3.23.8"
+    "zod": "^3.23.8",
+    "axios-auth-refresh": "^3.0.0"
   },
   "devDependencies": {
     "@eslint/js": "^9.9.0",
