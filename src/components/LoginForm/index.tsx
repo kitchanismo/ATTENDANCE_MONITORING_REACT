@@ -18,7 +18,7 @@ import { useState } from "react"
 import { useDispatch } from "react-redux"
 import { AppDispatch } from "@/store"
 import { actions } from "@/store/slices/user.slice"
-import { jwtDecode } from "jwt-decode"
+import { getDecodedToken } from "@/lib/utils"
 
 const loginFormSchema = z.object({
   username: z
@@ -57,8 +57,8 @@ const LoginForm = () => {
 
       if (response.status === 200) {
         const accessToken = response.data.accessToken
-        const decoded = jwtDecode(accessToken) as { data: User }
-        dispatch(actions.setCurrentUser(decoded?.data))
+        const user = getDecodedToken()?.data as User
+        dispatch(actions.setCurrentUser(user))
         localStorage.setItem("accessToken", accessToken)
         navigate("/dashboard")
       }
