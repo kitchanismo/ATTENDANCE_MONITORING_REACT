@@ -1,5 +1,3 @@
-import { applyMiddleware, combineReducers, Reducer } from "redux"
-
 import { configureStore } from "@reduxjs/toolkit"
 import userSlice from "./slices/user.slice"
 
