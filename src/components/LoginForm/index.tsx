@@ -2,16 +2,39 @@ import { zodResolver } from "@hookform/resolvers/zod"
 import { useForm } from "react-hook-form"
 import { z } from "zod"
 import { Button } from "@/components/ui/button"
-import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form"
+import {
+  Form,
+  FormControl,
+  FormField,
+  FormItem,
+  FormLabel,
+  FormMessage,
+} from "@/components/ui/form"
 import { Input } from "@/components/ui/input"
 import { User } from "@/types/user.type"
 import api from "@/api"
 import { useNavigate } from "react-router-dom"
 import { useState } from "react"
+import { useDispatch } from "react-redux"
+import { AppDispatch } from "@/store"
+import { actions } from "@/store/slices/user.slice"
+import { getDecodedToken } from "@/lib/utils"
 
 const loginFormSchema = z.object({
-  username: z.string().min(6).regex(/^(?=.*[a-zA-Z])(?=.*\d)/, 'Username must contain at least one letter and one number'),
-  password: z.string().min(6).regex(/^(?=.*[a-zA-Z])(?=.*\d)/, 'Password must contain at least one letter and one number'),
+  username: z
+    .string()
+    .min(6)
+    .regex(
+      /^(?=.*[a-zA-Z])(?=.*\d)/,
+      "Username must contain at least one letter and one number"
+    ),
+  password: z
+    .string()
+    .min(6)
+    .regex(
+      /^(?=.*[a-zA-Z])(?=.*\d)/,
+      "Password must contain at least one letter and one number"
+    ),
 })
 
 const LoginForm = () => {
@@ -23,15 +46,21 @@ const LoginForm = () => {
     },
   })
   const navigate = useNavigate()
-  const [loginErrorMessage, setLoginErrorMessage] = useState<string | null>(null)
+  const [loginErrorMessage, setLoginErrorMessage] = useState<string | null>(
+    null
+  )
+  const dispatch = useDispatch<AppDispatch>()
 
   const onSubmit = async (user: User) => {
     try {
-      const response = await api.post('api/auth/signin', user)
+      const response = await api.post("api/auth/signin", user)
 
       if (response.status === 200) {
-        localStorage.setItem("accessToken", response.data.accessToken)
-        navigate('/dashboard')
+        const accessToken = response.data.accessToken
+        const user = getDecodedToken()?.data as User
+        dispatch(actions.setCurrentUser(user))
+        localStorage.setItem("accessToken", accessToken)
+        navigate("/dashboard")
       }
     } catch (e) {
       setLoginErrorMessage("Invalid login credentials. Please try again.")
@@ -70,7 +99,7 @@ const LoginForm = () => {
             <FormItem>
               <FormLabel>Password</FormLabel>
               <FormControl>
-                <Input type='password' placeholder="Password" {...field} />
+                <Input type="password" placeholder="Password" {...field} />
               </FormControl>
               <FormMessage />
             </FormItem>
