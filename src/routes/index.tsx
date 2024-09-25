@@ -1,4 +1,4 @@
-import ProtectedRoute from "@/components/AuthRoute"
+import ProtectedRoute from "@/components/ProtectedRoute"
 import NotFound from "@/components/NotFound"
 import LoginPage from "@/pages/LoginPage"
 import StudentPage from "@/pages/StudentPage"
