@@ -29,7 +29,11 @@
     "tailwind-merge": "^2.5.2",
     "tailwindcss-animate": "^1.0.7",
     "zod": "^3.23.8",
-    "axios-auth-refresh": "^3.0.0"
+    "axios-auth-refresh": "^3.0.0",
+    "redux": "^4.2.0",
+    "redux-persist": "^6.0.0",
+    "@reduxjs/toolkit": "^1.8.3",
+    "react-redux": "^8.0.2"
   },
   "devDependencies": {
     "@eslint/js": "^9.9.0",
