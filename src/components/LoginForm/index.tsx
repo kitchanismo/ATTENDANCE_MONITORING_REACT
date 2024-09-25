@@ -57,12 +57,13 @@ const LoginForm = () => {
 
       if (response.status === 200) {
         const accessToken = response.data.accessToken
-        const user = getDecodedToken()?.data as User
+        const user = getDecodedToken(accessToken)?.data as User
         dispatch(actions.setCurrentUser(user))
         localStorage.setItem("accessToken", accessToken)
         navigate("/dashboard")
       }
     } catch (e) {
+      console.log({ e })
       setLoginErrorMessage("Invalid login credentials. Please try again.")
       loginForm.reset()
     }

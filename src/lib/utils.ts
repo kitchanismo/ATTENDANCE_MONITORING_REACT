@@ -7,7 +7,7 @@ export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs))
 }
 
-export function getDecodedToken() {
-  const token = localStorage.getItem("accessToken")
+export function getDecodedToken(accessToken?: string) {
+  const token = accessToken || localStorage.getItem("accessToken")
   return token ? (jwtDecode(token) as { data: User }) : null
 }
