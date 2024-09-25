@@ -1,5 +1,4 @@
 import ProtectedRoute from "@/components/AuthRoute"
-import Layout from "@/components/Layout"
 import NotFound from "@/components/NotFound"
 import LoginPage from "@/pages/LoginPage"
 import StudentPage from "@/pages/StudentPage"
@@ -12,34 +11,14 @@ const AppRoutes = () => {
     <React.Fragment>
       <Routes>
         <Route path="/" element={<LoginPage />} />
-
         <Route element={<ProtectedRoute />}>
           <Route
             path="/dashboard"
-            element={
-              <Layout>
-                <div className="container">Hello World! :)</div>
-              </Layout>
-            }
+            element={<div className="container">Hello World! :)</div>}
           />
-          <Route
-            path="/student"
-            element={
-              <Layout>
-                <StudentPage />
-              </Layout>
-            }
-          />
-          <Route
-            path="/subject"
-            element={
-              <Layout>
-                <SubjectPage />
-              </Layout>
-            }
-          />
+          <Route path="/student" element={<StudentPage />} />
+          <Route path="/subject" element={<SubjectPage />} />
         </Route>
-
         <Route path="*" element={<NotFound />} />
       </Routes>
     </React.Fragment>
