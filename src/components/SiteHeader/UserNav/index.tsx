@@ -21,8 +21,7 @@ const UserNav = () => {
   const userState = useSelector((state: RootState) => state.user)
 
   const logout = () => {
-    dispatch(actions.setCurrentUser(null))
-    localStorage.clear()
+    dispatch(actions.logout())
     navigate("/")
   }
   return (
