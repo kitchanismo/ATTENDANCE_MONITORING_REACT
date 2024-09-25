@@ -1,5 +1,6 @@
 import { PayloadAction, createSlice } from "@reduxjs/toolkit"
 import { User } from "@/types/user.type"
+import storage from "redux-persist/lib/storage"
 
 type UserStateType = {
   currentUser: User | null
@@ -18,6 +19,10 @@ const userSlice = createSlice({
     setCurrentUser: (state, action: PayloadAction<User | null>) => {
       state.currentUser = action.payload
       state.isAuthenticated = !!action.payload
+    },
+    logout: () => {
+      localStorage.clear()
+      storage.removeItem("persist:root")
     },
   },
 })
