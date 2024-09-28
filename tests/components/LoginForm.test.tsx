@@ -24,8 +24,8 @@ describe("LoginForm Frontend Validation", () => {
     const { container } = render(<Component />)
 
     await userEvent.click(screen.getByRole("button", { name: /login/i }))
-    await userEvent.type(screen.getByLabelText(/username/i), "sample123")
-    await userEvent.type(screen.getByLabelText(/password/i), "sample123")
+    await userEvent.type(screen.getByLabelText(/username/i), "12345")
+    await userEvent.type(screen.getByLabelText(/password/i), "12345")
 
     expect(container).toHaveTextContent(/6 character/i)
   })
