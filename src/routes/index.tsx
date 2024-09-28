@@ -4,7 +4,7 @@ import LoginPage from "@/pages/LoginPage"
 import StudentPage from "@/pages/StudentPage"
 import SubjectPage from "@/pages/SubjectPage"
 import React from "react"
-import { Route, BrowserRouter, Routes, RouteObject } from "react-router-dom"
+import { Route, BrowserRouter, Routes } from "react-router-dom"
 import CreateStudent from "@/pages/CreateStudent"
 
 export const AppRoutes = () => {
