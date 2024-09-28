@@ -5,6 +5,7 @@ import StudentPage from "@/pages/StudentPage"
 import SubjectPage from "@/pages/SubjectPage"
 import React from "react"
 import { Route, BrowserRouter, Routes } from "react-router-dom"
+import CreateStudent from "@/pages/CreateStudent"
 
 const AppRoutes = () => {
   return (
@@ -17,6 +18,7 @@ const AppRoutes = () => {
             element={<div className="container">Hello World! :)</div>}
           />
           <Route path="/student" element={<StudentPage />} />
+          <Route path="/student/create" element={<CreateStudent />} />
           <Route path="/subject" element={<SubjectPage />} />
         </Route>
         <Route path="*" element={<NotFound />} />
