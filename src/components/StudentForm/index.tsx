@@ -1,10 +1,7 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
-import React from "react"
 import { Student } from "@/types/student.type"
 import { zodResolver } from "@hookform/resolvers/zod"
 import { useForm } from "react-hook-form"
 import { z } from "zod"
-import { useNavigate } from "react-router-dom"
 import {
   Form,
   FormControl,
@@ -26,7 +23,6 @@ const studentFormSchema = z.object({
 })
 
 const CreateStudentForm = () => {
-  const navigate = useNavigate()
   const studentCreateForm = useForm<Student>({
     resolver: zodResolver(studentFormSchema),
     defaultValues: {
