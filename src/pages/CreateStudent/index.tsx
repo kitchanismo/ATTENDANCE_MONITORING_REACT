@@ -1,4 +1,5 @@
 import CreateStudentForm from "@/components/StudentForm"
+import withPermisson from "@/hoc/with.permission"
 
 const CreateStudent = () => {
   return (
@@ -8,4 +9,4 @@ const CreateStudent = () => {
   )
 }
 
-export default CreateStudent
+export default withPermisson(CreateStudent, "m-student")
