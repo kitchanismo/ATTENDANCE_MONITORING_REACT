@@ -1,5 +1,7 @@
-const StudentPage = () => {
-  return <div className="container">StudentPage</div>;
-};
+import withPermisson from "@/hoc/with.permission"
 
-export default StudentPage;
+const StudentPage = () => {
+  return <div className="container">StudentPage</div>
+}
+
+export default withPermisson(StudentPage, "m-student")
