@@ -1,7 +1,7 @@
-import { Button } from '@/components/ui/button';
-import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
-import { CalendarCheck2, Menu } from 'lucide-react';
-import { Link } from 'react-router-dom';
+import { Button } from "@/components/ui/button"
+import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet"
+import { CalendarCheck2, Menu } from "lucide-react"
+import { Link } from "react-router-dom"
 
 const MobileNav = () => {
   return (
@@ -28,10 +28,16 @@ const MobileNav = () => {
           >
             Subjects
           </Link>
+          <Link
+            to="/user"
+            className="flex w-full items-center py-2 text-lg font-semibold"
+          >
+            Users
+          </Link>
         </div>
       </SheetContent>
     </Sheet>
-  );
-};
+  )
+}
 
-export default MobileNav;
+export default MobileNav
