@@ -41,7 +41,7 @@ const UserNav = () => {
               {userState?.currentUser?.username}
             </p>
             <p className="text-xs leading-none text-muted-foreground">
-              m@example.com
+              {userState?.currentUser?.role?.name}
             </p>
           </div>
         </DropdownMenuLabel>
