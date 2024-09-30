@@ -5,7 +5,7 @@ import { CalendarCheck2, Menu } from "lucide-react"
 import { Link } from "react-router-dom"
 
 const MobileNav = () => {
-  const show = usePermission("m-user")
+  const show = usePermission()
   return (
     <Sheet>
       <SheetTrigger asChild>
@@ -30,7 +30,7 @@ const MobileNav = () => {
           >
             Subjects
           </Link>
-          {show && (
+          {show("m-user") && (
             <Link
               to="/user"
               className="flex w-full items-center py-2 text-lg font-semibold"

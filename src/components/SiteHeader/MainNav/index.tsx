@@ -13,7 +13,7 @@ import { RootState } from "@/store"
 import usePermission from "@/hooks/permission.hook"
 
 const MainNav = () => {
-  const show = usePermission("m-user")
+  const show = usePermission()
   return (
     <React.Fragment>
       <Link to="/" className="mr-6 hidden lg:flex">
@@ -35,7 +35,7 @@ const MainNav = () => {
               </NavigationMenuLink>
             </Link>
           </NavigationMenuItem>
-          {show && (
+          {show("m-user") && (
             <NavigationMenuItem>
               <Link to="/user">
                 <NavigationMenuLink className={navigationMenuTriggerStyle()}>
