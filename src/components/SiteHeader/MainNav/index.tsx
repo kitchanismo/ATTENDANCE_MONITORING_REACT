@@ -8,8 +8,6 @@ import {
 } from "@/components/ui/navigation-menu"
 import { CalendarCheck2 } from "lucide-react"
 import { Link } from "react-router-dom"
-import { useSelector } from "react-redux"
-import { RootState } from "@/store"
 import usePermission from "@/hooks/permission.hook"
 
 const MainNav = () => {
