@@ -1,15 +1,19 @@
-import React from 'react';
+import React from "react"
 import {
   NavigationMenu,
   NavigationMenuItem,
   NavigationMenuLink,
   NavigationMenuList,
   navigationMenuTriggerStyle,
-} from '@/components/ui/navigation-menu';
-import { CalendarCheck2 } from 'lucide-react';
-import { Link } from 'react-router-dom';
+} from "@/components/ui/navigation-menu"
+import { CalendarCheck2 } from "lucide-react"
+import { Link } from "react-router-dom"
+import { useSelector } from "react-redux"
+import { RootState } from "@/store"
+import usePermission from "@/hooks/permission.hook"
 
 const MainNav = () => {
+  const show = usePermission("m-user")
   return (
     <React.Fragment>
       <Link to="/" className="mr-6 hidden lg:flex">
@@ -31,10 +35,19 @@ const MainNav = () => {
               </NavigationMenuLink>
             </Link>
           </NavigationMenuItem>
+          {show && (
+            <NavigationMenuItem>
+              <Link to="/user">
+                <NavigationMenuLink className={navigationMenuTriggerStyle()}>
+                  Users
+                </NavigationMenuLink>
+              </Link>
+            </NavigationMenuItem>
+          )}
         </NavigationMenuList>
       </NavigationMenu>
     </React.Fragment>
-  );
-};
+  )
+}
 
-export default MainNav;
+export default MainNav

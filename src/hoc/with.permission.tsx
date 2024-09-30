@@ -1,5 +1,4 @@
-import { RootState } from "@/store"
-import { useSelector } from "react-redux"
+import usePermission from "@/hooks/permission.hook"
 import { Navigate } from "react-router-dom"
 
 const withPermisson = <P extends object>(
@@ -7,12 +6,8 @@ const withPermisson = <P extends object>(
   permissionCode: string
 ) => {
   return (props: P) => {
-    const userState = useSelector((state: RootState) => state?.user)
-    if (
-      !userState?.currentUser?.role?.permissions?.find(
-        (p) => p.code === permissionCode
-      )
-    ) {
+    const show = usePermission(permissionCode)
+    if (!show) {
       return <Navigate to="/not-found" />
     }
 
