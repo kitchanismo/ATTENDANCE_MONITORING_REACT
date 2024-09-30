@@ -1,9 +1,11 @@
 import { Button } from "@/components/ui/button"
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet"
+import usePermission from "@/hooks/permission.hook"
 import { CalendarCheck2, Menu } from "lucide-react"
 import { Link } from "react-router-dom"
 
 const MobileNav = () => {
+  const show = usePermission("m-user")
   return (
     <Sheet>
       <SheetTrigger asChild>
@@ -28,12 +30,14 @@ const MobileNav = () => {
           >
             Subjects
           </Link>
-          <Link
-            to="/user"
-            className="flex w-full items-center py-2 text-lg font-semibold"
-          >
-            Users
-          </Link>
+          {show && (
+            <Link
+              to="/user"
+              className="flex w-full items-center py-2 text-lg font-semibold"
+            >
+              Users
+            </Link>
+          )}
         </div>
       </SheetContent>
     </Sheet>
