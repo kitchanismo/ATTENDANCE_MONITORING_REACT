@@ -1,7 +1,7 @@
 import usePermission from "@/hooks/permission.hook"
 import { Navigate } from "react-router-dom"
 
-const withPermisson = <P extends object>(
+const withPermission = <P extends object>(
   WrappedComponent: React.ComponentType<P>,
   permissionCode: string
 ) => {
@@ -15,4 +15,4 @@ const withPermisson = <P extends object>(
   }
 }
 
-export default withPermisson
+export default withPermission

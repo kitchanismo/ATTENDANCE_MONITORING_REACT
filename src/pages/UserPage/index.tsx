@@ -1,7 +1,7 @@
-import withPermisson from "@/hoc/with.permission"
+import withPermission from "@/hoc/with.permission"
 
 const UserPage = () => {
   return <div className="container">UserPage</div>
 }
 
-export default withPermisson(UserPage, "m-user")
+export default withPermission(UserPage, "m-user")
