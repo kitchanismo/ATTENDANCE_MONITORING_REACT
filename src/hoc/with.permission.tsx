@@ -6,8 +6,8 @@ const withPermisson = <P extends object>(
   permissionCode: string
 ) => {
   return (props: P) => {
-    const show = usePermission(permissionCode)
-    if (!show) {
+    const show = usePermission()
+    if (!show(permissionCode)) {
       return <Navigate to="/not-found" />
     }
 
