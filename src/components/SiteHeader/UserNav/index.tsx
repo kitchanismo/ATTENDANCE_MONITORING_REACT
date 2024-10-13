@@ -24,6 +24,11 @@ const UserNav = () => {
     dispatch(actions.logout())
     navigate("/")
   }
+
+  const manageAccount = () => {
+    navigate("/account")
+  }
+
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
@@ -46,7 +51,7 @@ const UserNav = () => {
           </div>
         </DropdownMenuLabel>
         <DropdownMenuSeparator />
-        <DropdownMenuItem className="cursor-pointer">
+        <DropdownMenuItem className="cursor-pointer" onClick={manageAccount}>
           <Bolt size={16} className="mr-3" />
           Manage Account
         </DropdownMenuItem>
