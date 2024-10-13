@@ -3,16 +3,15 @@ import axios from '@/api'
 import { z } from 'zod'
 import { zodResolver } from "@hookform/resolvers/zod"
 import { useForm } from "react-hook-form"
-
 import { Button } from '@/components/ui/button'
 import { Dialog, DialogTrigger, DialogContent, DialogHeader, DialogFooter, DialogTitle, DialogDescription } from '@/components/ui/dialog'
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage, } from "@/components/ui/form"
 import { Input } from '@/components/ui/input'
 import { Toggle } from '@/components/ui/toggle'
-import { EyeOff, Eye } from 'lucide-react'
-import { User } from '@/types/user.type'
 import { Toaster } from '@/components/ui/toaster'
 import { useToast } from '@/hooks/use-toast'
+import { EyeOff, Eye } from 'lucide-react'
+import { User } from '@/types/user.type'
 
 interface ChangePasswordFormProps {
   userData: User
@@ -73,9 +72,9 @@ const ChangePasswordForm = ({ userData }: ChangePasswordFormProps) => {
       })
       if (response.data.status === 201) {
         toast({
-          description: "Your password has been updated successfully."
+          title: "Password Updated Successfully",
+          description: "Changes will take effect on your next login."
         })
-        console.log('Password Changed Successfully')
       }
     } catch (error) {
       console.error(error)
@@ -95,12 +94,11 @@ const ChangePasswordForm = ({ userData }: ChangePasswordFormProps) => {
     }
   }
 
-
   return (
     <>
       <Dialog open={isOpen} onOpenChange={handleDialogOpen}>
         <DialogTrigger asChild>
-          <Button variant={"secondary"}>Change Password</Button>
+          <Button >Change Password</Button>
         </DialogTrigger>
         <DialogContent>
           <DialogHeader>
