@@ -20,12 +20,18 @@ const ManageAccount = () => {
     }
   }
 
-  // NOTE: Avatar Fallback
+  const avatarFallbackText = () => {
+    if (userData) {
+      return (userData?.firstName.charAt(0) + userData?.lastName.charAt(0)).toUpperCase()
+    }
+    return ''
+  }
+
   return (
     <div className="container flex">
       <Avatar className='w-24 h-24 mr-10'>
         <AvatarImage></AvatarImage>
-        <AvatarFallback className='text-3xl'>AL</AvatarFallback>
+        <AvatarFallback className='text-3xl'>{avatarFallbackText()}</AvatarFallback>
       </Avatar>
       {userData &&
         <>
@@ -36,7 +42,6 @@ const ManageAccount = () => {
             <p>Last Name: {userData?.lastName}</p>
           </div>
           <ChangePasswordForm userData={userData} />
-
         </>
       }
     </div>
